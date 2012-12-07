@@ -1,0 +1,1 @@
+alias sshh="ssh hades 'ls /svn' | grep $1"
