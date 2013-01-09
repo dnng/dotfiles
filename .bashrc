@@ -113,3 +113,11 @@ export TFTPDIR=/srv/tftp/dnoguchi/
 
 # git completion
 source ~/.git-completion.bash
+
+get_dir() {
+    printf "%s" $(pwd | sed "s:$HOME:~:")
+}
+
+get_sha() {
+    git rev-parse --short HEAD 2>/dev/null
+}
