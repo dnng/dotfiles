@@ -125,4 +125,26 @@ get_sha() {
 
 source ~/.aliases
 
+# Some git sugar to ease my life :-)
+# First we set PS1 var to show me where I am in the context of a git repository.
+# Then we set some common git variables to show me some information about the
+# repo without the need to run git status every time.
+#
+# Some doc is good to understand the values:
+# A * tells me that I have unstaged changes in the repo
+# A % tells me that I have untracked changes in the repo
+# A + tells me that I have staged changes in the repo
+# A = tells me that I’m neither ahead of nor behind the remote branch
+# A < tells me that I am behind the remote branch
+# A > tells me that I am ahead the remote branch
+# A <> tells me that the branches have diverged
+# diverged
 PS1='\u \W$(__git_ps1 " (%s $(get_sha)) ")\$ '
+
+GIT_PS1_SHOWDIRTYSTATE=1
+GIT_PS1_SHOWSTASHSTATE=1
+GIT_PS1_SHOWUNTRACKEDFILES=1
+# Explicitly unset color (default anyhow). Use 1 to set it.
+GIT_PS1_SHOWCOLORHINTS=
+GIT_PS1_DESCRIBE_STYLE="branch"
+GIT_PS1_SHOWUPSTREAM="auto git"
