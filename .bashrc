@@ -115,9 +115,6 @@ export HWANDIR=/home/dnoguchi/src/svn/hwanalyzer
 export ROOTFSDIR=/home/dnoguchi/src/svn/rootfs
 export TFTPDIR=/srv/tftp/dnoguchi/
 
-# git completion
-source ~/.git-completion.bash
-
 get_dir() {
     printf "%s" $(pwd | sed "s:$HOME:~:")
 }
@@ -125,3 +122,7 @@ get_dir() {
 get_sha() {
     git rev-parse --short HEAD 2>/dev/null
 }
+
+source ~/.aliases
+
+PS1='\u \W$(__git_ps1 " (%s $(get_sha)) ")\$ '
