@@ -139,7 +139,7 @@ source ~/.aliases
 # A > tells me that I am ahead the remote branch
 # A <> tells me that the branches have diverged
 # diverged
-PS1='\u \W$(__git_ps1 " (%s $(get_sha)) ")\$ '
+PS1='\u@\h \W$(__git_ps1 " (%s $(get_sha)) ")\$ '
 
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
