@@ -136,7 +136,6 @@ get_sha() {
 # A < tells me that I am behind the remote branch
 # A > tells me that I am ahead the remote branch
 # A <> tells me that the branches have diverged
-# diverged
 PS1='\u@\h \W$(__git_ps1 " (%s $(get_sha)) ")\$ '
 
 GIT_PS1_SHOWDIRTYSTATE=1
