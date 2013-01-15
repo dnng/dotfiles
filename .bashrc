@@ -123,7 +123,7 @@ get_sha() {
     git rev-parse --short HEAD 2>/dev/null
 }
 
-sets_-sign() {
+set_sign() {
     git config user.name "Daniel Noguchi"
     git config user.email danielnoguchi@gmail.com
 }
