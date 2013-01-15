@@ -145,3 +145,12 @@ GIT_PS1_SHOWUNTRACKEDFILES=1
 GIT_PS1_SHOWCOLORHINTS=
 GIT_PS1_DESCRIBE_STYLE="branch"
 GIT_PS1_SHOWUPSTREAM="auto git"
+
+# OS X pbcopy/pbpaste command line tool emulation
+if [ ls /usr/bin/xclip ] ; then 
+    alias pbcopy='xclip -selection clipboard'
+    alias pbpaste='xclip -selection clipboard -o'
+else
+    continue;
+fi
+
