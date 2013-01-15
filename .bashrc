@@ -123,6 +123,11 @@ get_sha() {
     git rev-parse --short HEAD 2>/dev/null
 }
 
+sets_-sign() {
+    git config user.name "Daniel Noguchi"
+    git config user.email danielnoguchi@gmail.com
+}
+
 # Some git sugar to ease my life :-)
 # First we set PS1 var to show me where I am in the context of a git repository.
 # Then we set some common git variables to show me some information about the
