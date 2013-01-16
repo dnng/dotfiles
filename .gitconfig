@@ -36,5 +36,6 @@
     # Show files ignored by git:
     ign = ls-files -o -i --exclude-standard
 	dir = git rev-parse --show-toplevel
+	slog = log --pretty=format:\"%C(yellow)%h%Cred%d %Creset%s%Cblue [%cn]\" --decorate
 [http]
 	sslVerify = false
