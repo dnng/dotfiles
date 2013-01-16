@@ -123,6 +123,11 @@ get_sha() {
     git rev-parse --short HEAD 2>/dev/null
 }
 
+set_sign() {
+    git config user.name "Daniel Noguchi"
+    git config user.email danielnoguchi@gmail.com
+}
+
 # Some git sugar to ease my life :-)
 # First we set PS1 var to show me where I am in the context of a git repository.
 # Then we set some common git variables to show me some information about the
@@ -147,10 +152,9 @@ GIT_PS1_DESCRIBE_STYLE="branch"
 GIT_PS1_SHOWUPSTREAM="auto git"
 
 # OS X pbcopy/pbpaste command line tool emulation
-if [ $(ls /usr/bin/xclip) ] ; then 
+if [ -f /usr/bin/xclip ] ; then
     alias pbcopy='xclip -selection clipboard'
     alias pbpaste='xclip -selection clipboard -o'
 else
     continue;
 fi
-
