@@ -35,5 +35,6 @@
     ls = ls-files
     # Show files ignored by git:
     ign = ls-files -o -i --exclude-standard
+	dir = git rev-parse --show-toplevel
 [http]
 	sslVerify = false
