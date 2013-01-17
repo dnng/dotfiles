@@ -141,7 +141,7 @@ set_sign() {
 # A < tells me that I am behind the remote branch
 # A > tells me that I am ahead the remote branch
 # A <> tells me that the branches have diverged
-PS1='\u@\h \W$(__git_ps1 " (%s $(get_sha)) ")\$ '
+PS1="$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[01;32m\]\u@\h'; fi)\[\033[01;34m\] \W \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]:(\[\033[01;34m\] \")\$\[\033[00m\] "
 
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
