@@ -123,7 +123,7 @@ get_sha() {
     git rev-parse --short HEAD 2>/dev/null
 }
 
-set_sign() {
+set_nog_sign() {
     git config user.name "Daniel Noguchi"
     git config user.email danielnoguchi@gmail.com
 }
@@ -141,7 +141,21 @@ set_sign() {
 # A < tells me that I am behind the remote branch
 # A > tells me that I am ahead the remote branch
 # A <> tells me that the branches have diverged
-PS1="$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[01;32m\]\u@\h'; fi)\[\033[01;34m\] \W \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]:(\[\033[01;34m\] \")\$\[\033[00m\] "
+#
+# Update: I've disabled this because it takes too long to parse on large dirs:
+# PS1='\u@\h \W$(__git_ps1 " (%s $(get_sha)) ")\$ '
+#
+# Then I just transformed it to a function, so if you want it, just make a call
+# to it:
+set_git_ps1() {
+    PS1='\u@\h \W$(__git_ps1 " (%s $(get_sha)) ")\$ '
+}
+
+set_nog_ps1() {
+    PS1="$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[01;32m\]\u@\h'; fi)\[\033[01;34m\] \W \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]:(\[\033[01;34m\] \")\$\[\033[00m\] "
+}
+
+set_nog_ps1
 
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWSTASHSTATE=1
