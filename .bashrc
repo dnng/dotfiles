@@ -170,3 +170,20 @@ if [ -f /usr/bin/xclip ] ; then
     alias pbcopy='xclip -selection clipboard'
     alias pbpaste='xclip -selection clipboard -o'
 fi
+
+# Add reset author and email on git log function
+# From http://stackoverflow.com/questions/750172/how-do-i-change-the-author-of-a-commit-in-git
+rewrite_nog_git_sign() {
+    git filter-branch --commit-filter '
+    if [ "$GIT_COMMITTER_NAME" = "Daniel Noguchi" ];
+    then
+        GIT_COMMITTER_NAME="Daniel Noguchi";
+        GIT_AUTHOR_NAME="Daniel Noguchi";
+        GIT_COMMITTER_EMAIL="danielnoguchi@gmail.com";
+        GIT_AUTHOR_EMAIL="danielnoguchi@gmail.com";
+        git commit-tree "$@";
+    else
+        git
+        commit-tree "$@";
+    fi' HEAD
+}
