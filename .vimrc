@@ -31,6 +31,8 @@ Bundle 'scrooloose/nerdtree'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
+Bundle 'unicode.vim'
+Bundle 'taglist.vim'
 " non github repos
 Bundle 'git://git.wincent.com/command-t.git'
 " ...
