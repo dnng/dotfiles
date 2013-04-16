@@ -15,11 +15,14 @@ Remember that this will erase your previous configuration and load a new one
 from the file you specified! I encourage you to read the man page before doing
 it!
 
-# Edit your .Xresources configuration file with the defaults for uxterm
-user@machine ~ $ vim .Xresources 
+#. Edit your .Xresources configuration file with the defaults for uxterm
 
-# Save it as the new default configuration
-user@machine ~ $ xrdb -load ~/.Xresources
+   user@machine ~ $ vim .Xresources 
 
-# Run uxterm and test it (I did this from a gnome-terminal)
-user@machine ~ $ uxterm &
+#. Save it as the new default configuration
+
+   user@machine ~ $ xrdb -load ~/.Xresources
+
+#. Run uxterm and test it (I did this from a gnome-terminal)
+
+   user@machine ~ $ uxterm &
