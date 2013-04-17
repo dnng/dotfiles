@@ -1,0 +1,29 @@
+" Mappings
+
+" select next/previous tab
+map <Right> gt
+map <Left> gT
+map <C-l> gt
+map <C-h> gT
+
+" move current tab left/right
+map <S-Right> :tabmove! +1<CR>
+map <S-Left> :tabmove! -1<CR>
+map <C-L> :tabmove! +1<CR>
+map <C-H> :tabmove! -1<CR>
+
+" Options
+set focuscontent
+set showmode
+set showstatuslinks
+
+" Set editor
+set editor=urxvt -pt Root -e vim
+
+" Abbreviations
+cabbrev /. http://www.slashdot.org
+cabbrev yt http://www.youtube.com
+cabbrev tg tabopen goosh
+
+ca dict tabnew\nhttp://www.wordreference.com/enpt
+
