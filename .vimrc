@@ -66,6 +66,9 @@ set hlsearch  " Highlights all the matches for the searched pattern
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 set tags=./tags;/
 
+" Set default colorscheme to desert
+set colorscheme desert
+
 autocmd BufWritePre *.c :%s/\s\+$//e
 autocmd BufWritePre *.h :%s/\s\+$//e
 
