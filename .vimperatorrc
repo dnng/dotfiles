@@ -21,9 +21,9 @@ set showstatuslinks
 set editor=urxvt -pt Root -e vim
 
 " Abbreviations
-cabbrev /. http://www.slashdot.org
-cabbrev yt http://www.youtube.com
-cabbrev tg tabopen goosh
+cabbrev /. tabopen http://www.slashdot.org
+cabbrev yt tabopen http://www.youtube.com
+cabbrev tg tabopen goosh.org
 
-ca dict tabnew\nhttp://www.wordreference.com/enpt
+ca dict tabnew http://www.wordreference.com/enpt
 
