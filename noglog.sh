@@ -20,9 +20,9 @@ TAGS=$(git log --simplify-by-decoration --decorate --pretty=oneline | \
 # Couldn't find a solution that does not use arrays, so the script is not
 # portable, but its the first version so...
 declare -a TAGS_LIST=(${TAGS})
-LAST_TAG=${TAGS_LIST[$((${NUM_OF_TAGS}-1))]}
 
 NUM_OF_TAGS=${#TAGS_LIST[@]}
+LAST_TAG=${TAGS_LIST[$((${NUM_OF_TAGS}-1))]}
 LOG_FILE="changelog"
 
 # Now the fun part:
