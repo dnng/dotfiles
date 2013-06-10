@@ -78,6 +78,7 @@ autocmd QuickFixCmdPost * :copen
 filetype on
 filetype plugin indent on
 autocmd BufWritePost *.c :TlistUpdate
+autocmd FileType make setlocal noexpandtab " Turn off expandtab for Makefiles
 
 highlight DiffAdd term=reverse cterm=bold ctermbg=green ctermfg=white
 highlight DiffChange term=reverse cterm=bold ctermbg=cyan ctermfg=black
