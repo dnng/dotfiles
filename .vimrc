@@ -1,6 +1,6 @@
 " ----------------------------------------------------------------------------
 " - File: ~/.vimrc
-" - Author: Daniel Noguchi < daniel.noguchi@padtec.com.br>
+" - Author: Daniel Noguchi < danielnoguchi at gmail dot com '>
 " - Created:      Apr 18, 2012
 " - Installation: - As dotfile drop the file into your $HOME/ folder.
 " -               - In Command line put $vim -U .vimrc.
