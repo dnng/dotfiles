@@ -106,14 +106,10 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-# Defaut dnoguchi's paths to easy my life
-export KDIR=/home/dnoguchi/src/svn/kernel/100g-kernel
-export KMODDIR=/home/dnoguchi/src/svn/kmodules/100g-kmodules
-export LIBDIR=/home/dnoguchi/src/svn/lib/100g-padio
-export BRDIR=/home/dnoguchi/src/git/buildroot
-export HWANDIR=/home/dnoguchi/src/svn/hwanalyzer
-export ROOTFSDIR=/home/dnoguchi/src/svn/rootfs
-export TFTPDIR=/srv/tftp/dnoguchi/
+# execute work-specific scripts
+if [ -d .work ] ; then
+    . ~/.work/*
+fi
 
 get_dir() {
     printf "%s" $(pwd | sed "s:$HOME:~:")
@@ -187,3 +183,4 @@ rewrite_nog_git_sign() {
         commit-tree "$@";
     fi' HEAD
 }
+
