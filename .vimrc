@@ -28,7 +28,7 @@ Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdtree' 
-Bundle 'vim-scripts/Align'
+Bundle 'godlygeek/tabular'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
