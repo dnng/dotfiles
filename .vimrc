@@ -29,6 +29,7 @@ Bundle 'Lokaltog/vim-easymotion'
 Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdtree' 
 Bundle 'godlygeek/tabular'
+Bundle 'flazz/vim-colorschemes'
 " vim-scripts repos
 Bundle 'L9'
 Bundle 'FuzzyFinder'
