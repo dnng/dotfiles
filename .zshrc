@@ -21,6 +21,11 @@ ZSH_THEME="robbyrussell"
                                         # command output. The optional three
                                         # formats:
                                         # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
+
+export JAVA_HOME=`/usr/libexec/java_home -v 1.8` #JAVA_HOME
+export M2_HOME=/usr/local/maven-3.0.5
+export MAVEN_OPTS=-Xmx1024m
+
 # ZSH_CUSTOM=/path/to/new-custom-folder # Would you like to use another custom folder than $ZSH/custom?
 plugins=(git osx npm node aws brew gradle mvn)
 source $ZSH/oh-my-zsh.sh
