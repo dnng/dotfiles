@@ -8,8 +8,8 @@
 " -          <http://www.gnu.org/licenses/gpl.html>
 " ----------------------------------------------------------------------------
 
-set nocompatible               " be iMproved
-filetype off                   " required!
+set nocompatible    " be iMproved
+filetype off        " required!
 
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
@@ -21,16 +21,18 @@ call vundle#rc()
 " let Vundle manage Vundle (required!)
 Bundle 'gmarik/vundle'
 
-" My Bundles here:
-
 " original repos on github
+Bundle 'Lokaltog/powerline'
 Bundle 'tpope/vim-fugitive'
 Bundle 'Lokaltog/vim-easymotion'
-Bundle 'rstacruz/sparkup', {'rtp': 'vim/'}
 Bundle 'scrooloose/nerdtree' 
 Bundle 'godlygeek/tabular'
 Bundle 'flazz/vim-colorschemes'
-" vim-scripts repos
+Bundle 'digitaltoad/vim-jade'
+Bundle 'Valloric/YouCompleteMe'
+Bundle "MarcWeber/vim-addon-mw-utils"
+Bundle 'SirVer/ultisnips'
+Bundle "honza/vim-snippets"
 Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'unicode.vim'
@@ -64,9 +66,10 @@ set hlsearch  " Highlights all the matches for the searched pattern
 " Use "set list" to display this charaters and "set nolist" to hide them
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 set tags=./tags;/
+set nu
 
-" Set default colorscheme to desert
-colorscheme desert
+" Set default colorscheme to monokain
+colo monokain
 
 autocmd BufWritePre *.c :%s/\s\+$//e
 autocmd BufWritePre *.h :%s/\s\+$//e
@@ -78,6 +81,7 @@ filetype on
 filetype plugin indent on
 autocmd BufWritePost *.c :TlistUpdate
 autocmd FileType make setlocal noexpandtab " Turn off expandtab for Makefiles
+autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
 
 highlight DiffAdd term=reverse cterm=bold ctermbg=green ctermfg=white
 highlight DiffChange term=reverse cterm=bold ctermbg=cyan ctermfg=black
@@ -87,7 +91,7 @@ highlight DiffDelete term=reverse cterm=bold ctermbg=red ctermfg=black
 filetype plugin indent on
 syntax enable
 
-let Tlist_Ctags_Cmd = "/usr/bin/ctags"
+let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 let Tlist_WinWidth = 50
 let Tlist_Use_Right_Window = 1
 
@@ -99,8 +103,36 @@ map <F5> :NERDTreeToggle<cr>
 " Change comments from C++ style to C style
 map <F6> :s#\/\/\(.*\)#/*\1 */#<cr>
 
-map <F8> :!/usr/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <F8> :!/usr/local/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " Enter newline without entering insert mode
 map <S-Enter> O<Esc>
 map <CR> o<Esc>
+
+" automatically open and close the popup menu / preview window
+au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
+
+colo monokain
+
+" Disable ycm file check
+let g:ycm_confirm_extra_conf = 0
+
+" If you want :UltiSnipsEdit to split your window.
+let g:UltiSnipsEditSplit="vertical"
+let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltiSnipsJumpForwardTrigger="<Tab>"                                           
+let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+
+set rtp+=/Users/dnoguchi/.vim/bundle/powerline/powerline/bindings/vim/
+set laststatus=2
+set guifont=Inconsolata\ for\ Powerline:h13
+let g:Powerline_symbols = 'fancy'
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+
