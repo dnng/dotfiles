@@ -40,7 +40,7 @@ export LANG=en_US.UTF-8 # You may need to manually set your language environment
 if [[ -n $SSH_CONNECTION ]]; then
     export EDITOR='vim'
 else
-    export EDITOR='mvim'
+    export EDITOR='vim'
 fi
 
 # export ARCHFLAGS="-arch x86_64" # Compilation flags
