@@ -62,6 +62,10 @@ set wm=4
 set incsearch " Show first mach for the pattern being written
 set hlsearch  " Highlights all the matches for the searched pattern
 
+" Set highlight for line and column
+set cursorline
+set cursorcolumn
+
 " This defines the visible expression of whitespace characters
 " Use "set list" to display this charaters and "set nolist" to hide them
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
