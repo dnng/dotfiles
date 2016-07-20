@@ -37,6 +37,7 @@ Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'unicode.vim'
 Bundle 'taglist.vim'
+Bundle 'fatih/vim-go'
 
 filetype plugin indent on     " required!
 
@@ -49,31 +50,29 @@ filetype plugin indent on     " required!
 " see :h vundle for more details or wiki for FAQ
 " NOTE: comments after Bundle command are not allowed..
 
-"set number    " Show line numbers
 set textwidth=80
 set shiftwidth=4
+set nonu
 
 set expandtab " Tabs into spaces
 set ts=4      " Tab = 4 spaces
 
 set sw=4      " Number of collums shifted by the command '>' or '<'
 set sm        " Highlight enclosing brackets
-set wm=4
+set wm=4      " No of characters from the right window border where wrapping starts
 set incsearch " Show first mach for the pattern being written
 set hlsearch  " Highlights all the matches for the searched pattern
 
 " Set highlight for line and column
 set cursorline
-set cursorcolumn
+" set cursorcolumn
 
 " This defines the visible expression of whitespace characters
 " Use "set list" to display this charaters and "set nolist" to hide them
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 set tags=./tags;/
-set nu
 
-" Set default colorscheme to monokain
-colo monokain
+colo distinguished
 
 autocmd BufWritePre *.c :%s/\s\+$//e
 autocmd BufWritePre *.h :%s/\s\+$//e
@@ -116,7 +115,6 @@ map <CR> o<Esc>
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
-colo monokain
 
 " Disable ycm file check
 let g:ycm_confirm_extra_conf = 0
@@ -125,6 +123,7 @@ let g:ycm_confirm_extra_conf = 0
 let g:UltiSnipsEditSplit="vertical"
 let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
 let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+let g:SuperTabDefaultCompletionType = '<C-n>'
 
 let g:UltiSnipsExpandTrigger="<Tab>"
 let g:UltiSnipsJumpForwardTrigger="<Tab>"                                           
@@ -139,4 +138,8 @@ set t_Co=256
 set fillchars+=stl:\ ,stlnc:\
 set term=xterm-256color
 set termencoding=utf-8
+
+" vim-go specifics
+let g:go_fmt_fail_silently = 1
+let g:go_fmt_autosave = 0
 
