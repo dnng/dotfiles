@@ -8,64 +8,61 @@
 " -          <http://www.gnu.org/licenses/gpl.html>
 " ----------------------------------------------------------------------------
 
-set nocompatible    " be iMproved
-filetype off        " required!
+set nocompatible              " be iMproved, required
+filetype off                  " required
 
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" Installing plugins via Vundle
-" This assumes you already installed vundle via:
-" git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+" Set-up Vundle
+" $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 "
-" let Vundle manage Vundle (required!)
-Bundle 'gmarik/vundle'
+" set the runtime path to include Vundle and initialize
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+" alternatively, pass a path where Vundle should install plugins
+" call vundle#begin('~/some/path/here')
 
-" original repos on github
-Bundle 'Lokaltog/powerline'
-Bundle 'tpope/vim-fugitive'
-Bundle 'Lokaltog/vim-easymotion'
-Bundle 'scrooloose/nerdtree' 
-Bundle 'godlygeek/tabular'
-Bundle 'flazz/vim-colorschemes'
-Bundle 'digitaltoad/vim-jade'
-Bundle 'Valloric/YouCompleteMe'
-Bundle "MarcWeber/vim-addon-mw-utils"
-Bundle 'SirVer/ultisnips'
-Bundle "honza/vim-snippets"
-Bundle 'L9'
-Bundle 'FuzzyFinder'
-Bundle 'unicode.vim'
-Bundle 'taglist.vim'
-Bundle 'fatih/vim-go'
+" let Vundle manage Vundle, required
+Plugin 'VundleVim/Vundle.vim'
 
-filetype plugin indent on     " required!
+" All of your Plugins must be added before the following line
+call vundle#end()            " required
+filetype plugin indent on    " required
+
+Plugin 'ervandew/supertab'
+Plugin 'Valloric/YouCompleteMe'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
+Plugin 'Lokaltog/powerline'
+Plugin 'tpope/vim-fugitive'
+Plugin 'scrooloose/nerdtree'
+Plugin 'godlygeek/tabular'
+Plugin 'flazz/vim-colorschemes'
+Plugin 'digitaltoad/vim-jade'
+Plugin 'fatih/vim-go'
 
 " Brief help
-" BundleList          - list configured bundles
-" BundleInstall(!)    - install(update) bundles
-" BundleSearch(!) foo - search(or refresh cache first) for foo
-" BundleClean(!)      - confirm(or auto-approve) removal of unused bundles
-
+" :PluginList       - lists configured plugins
+" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
+" :PluginSearch foo - searches for foo; append `!` to refresh local cache
+" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
+"
 " see :h vundle for more details or wiki for FAQ
-" NOTE: comments after Bundle command are not allowed..
 
-set textwidth=80
-set shiftwidth=4
-set nonu
-
+" ---------------------------------------------------------------------
+" REMEMBER TO COMPILE YCM WITH --clang-completer AND --gocode-completer
+"               PUT YOUR NON-PLUGIN STUFF AFTER THIS LINE
+" ---------------------------------------------------------------------
 set expandtab " Tabs into spaces
 set ts=4      " Tab = 4 spaces
-
+set tw=80
 set sw=4      " Number of collums shifted by the command '>' or '<'
 set sm        " Highlight enclosing brackets
 set wm=4      " No of characters from the right window border where wrapping starts
 set incsearch " Show first mach for the pattern being written
 set hlsearch  " Highlights all the matches for the searched pattern
+set nonu
 
 " Set highlight for line and column
 set cursorline
-" set cursorcolumn
 
 " This defines the visible expression of whitespace characters
 " Use "set list" to display this charaters and "set nolist" to hide them
@@ -80,8 +77,6 @@ autocmd BufWritePre *.h :%s/\s\+$//e
 " Automatically open the quickfix window after you run make
 autocmd QuickFixCmdPost * :copen
 
-filetype on
-filetype plugin indent on
 autocmd BufWritePost *.c :TlistUpdate
 autocmd FileType make setlocal noexpandtab " Turn off expandtab for Makefiles
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -91,7 +86,6 @@ highlight DiffChange term=reverse cterm=bold ctermbg=cyan ctermfg=black
 highlight DiffText term=reverse cterm=bold ctermbg=gray ctermfg=black
 highlight DiffDelete term=reverse cterm=bold ctermbg=red ctermfg=black 
 
-filetype plugin indent on
 syntax enable
 
 let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
@@ -119,15 +113,18 @@ au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 " Disable ycm file check
 let g:ycm_confirm_extra_conf = 0
 
-" If you want :UltiSnipsEdit to split your window.
-let g:UltiSnipsEditSplit="vertical"
-let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+" make YCM compatible with UltiSnips (using supertab)
+let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
 let g:SuperTabDefaultCompletionType = '<C-n>'
+let g:ycm_complete_in_comments = 1
+let g:ycm_complete_in_strings = 1
+let g:ycm_collect_identifiers_from_comments_and_strings = 1
 
-let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltiSnipsJumpForwardTrigger="<Tab>"                                           
-let g:UltiSnipsJumpBackwardTrigger="<S-Tab>"
+" better key bindings for UltiSnipsExpandTrigger
+let g:UltiSnipsExpandTrigger = "<tab>"
+let g:UltiSnipsJumpForwardTrigger = "<tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<s-tab>"
 
 set rtp+=/Users/dnoguchi/.vim/bundle/powerline/powerline/bindings/vim/
 set laststatus=2
@@ -142,4 +139,16 @@ set termencoding=utf-8
 " vim-go specifics
 let g:go_fmt_fail_silently = 1
 let g:go_fmt_autosave = 0
+let g:go_highlight_functions = 1
+let g:go_highlight_methods = 1
+let g:go_highlight_fields = 1
+let g:go_highlight_types = 1
+let g:go_highlight_operators = 1
+let g:go_highlight_build_constraints = 1
 
+" Go Specific Stuff
+
+au BufRead,BufNewFile *.go set filetype=go
+autocmd FileType go setlocal softtabstop=4
+autocmd FileType go setlocal shiftwidth=4
+autocmd FileType go setlocal tabstop=4
