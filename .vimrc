@@ -68,6 +68,10 @@ set cursorline
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
 set tags=./tags;/
 
+" Visual mode my ass! Q repeats the last macro instead.
+" Many thanks to: http://vimbits.com/bits/263
+nnoremap Q @@
+
 colo distinguished
 
 autocmd BufWritePre *.c :%s/\s\+$//e
