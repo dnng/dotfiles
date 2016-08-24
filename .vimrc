@@ -1,15 +1,14 @@
 " ----------------------------------------------------------------------------
-" - File: ~/.vimrc
-" - Author: Daniel Noguchi < danielnoguchi at gmail dot com '>
-" - Created:      Apr 18, 2012
-" - Installation: - As dotfile drop the file into your $HOME/ folder.
-" -               - In Command line put $vim -U .vimrc.
-" - License: GNU General Public License v3
-" -          <http://www.gnu.org/licenses/gpl.html>
+" File: ~/.vimrc
+" Author: Daniel Noguchi < danielnoguchi at gmail dot com '>
+" Created: Apr 18, 2012
+" Installation: - As dotfile drop the file into your $HOME/ folder.
+"               - In Command line put $vim -U .vimrc.
+" License: MIT < https://opensource.org/licenses/MIT >
 " ----------------------------------------------------------------------------
 
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible " be iMproved, required
+filetype off     " required
 
 " Set-up Vundle
 " $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
