@@ -3,36 +3,42 @@ export ZSH=$HOME/.oh-my-zsh
 
 ZSH_THEME="robbyrussell"
 
-# CASE_SENSITIVE="true"                 # Uncomment the following line to use case-sensitive completion.
-# DISABLE_AUTO_UPDATE="true"            # Uncomment the following line to disable bi-weekly auto-update checks.
-# export UPDATE_ZSH_DAYS=13             # Uncomment the following line to change how often to auto-update (in days).
-# DISABLE_LS_COLORS="true"              # Uncomment the following line to disable colors in ls.
-# DISABLE_AUTO_TITLE="true"             # Uncomment the following line to disable auto-setting terminal title.
-# ENABLE_CORRECTION="true"              # Uncomment the following line to enable command auto-correction.
-# COMPLETION_WAITING_DOTS="true"        # Uncomment the following line to display red dots whilst waiting for completion.
-# DISABLE_UNTRACKED_FILES_DIRTY="true"  # Uncomment the following line if you
+# CASE_SENSITIVE="true"                 # Uncomment to use case-sensitive completion.
+# DISABLE_AUTO_UPDATE="true"            # Uncomment to disable bi-weekly auto-update checks.
+# export UPDATE_ZSH_DAYS=13             # Uncomment to change how often to auto-update (in days).
+# DISABLE_LS_COLORS="true"              # Uncomment to disable colors in ls.
+# DISABLE_AUTO_TITLE="true"             # Uncomment to disable auto-setting terminal title.
+# ENABLE_CORRECTION="true"              # Uncomment to enable command auto-correction.
+# COMPLETION_WAITING_DOTS="true"        # Uncomment to display red dots whilst waiting for completion.
+DISABLE_UNTRACKED_FILES_DIRTY="true"    # Uncomment the following line if you
                                         # want to disable marking untracked
                                         # files under VCS as dirty. This makes
                                         # repository status check for large
                                         # repositories much, much faster.
-# HIST_STAMPS="mm/dd/yyyy"              # Uncomment the following line if you
+HIST_STAMPS="mm/dd/yyyy"                # Uncomment the following line if you
                                         # want to change the command execution
                                         # time stamp shown in the history
                                         # command output. The optional three
                                         # formats:
                                         # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 
+
+export GOPATH=$HOME/.go
+export GOBIN=${GOPATH}/bin
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8` #JAVA_HOME
 export M2_HOME=/usr/local/maven-3.0.5
 export MAVEN_OPTS=-Xmx1024m
 
 # ZSH_CUSTOM=/path/to/new-custom-folder # Would you like to use another custom folder than $ZSH/custom?
-plugins=(git osx npm node aws brew gradle mvn)
+plugins=(git osx npm node aws brew gradle mvn go)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
 
 export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH=$PATH:/usr/local/sbin
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/share/dotnet
 export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8 # You may need to manually set your language environment
 
