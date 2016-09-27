@@ -30,7 +30,7 @@ export M2_HOME=/usr/local/maven-3.0.5
 export MAVEN_OPTS=-Xmx1024m
 
 # ZSH_CUSTOM=/path/to/new-custom-folder # Would you like to use another custom folder than $ZSH/custom?
-plugins=(git osx npm node aws brew gradle mvn go)
+plugins=(git osx npm node aws brew gradle mvn go colored-man-pages command-not-found cp extract vundle node pip brew)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
