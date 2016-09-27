@@ -55,7 +55,7 @@ export SSH_KEY_PATH="~/.ssh/cmusvcloudcomputing.pem" # ssh
 alias zshconfig="atom ~/.zshrc"
 alias ohmyzsh="atom ~/.oh-my-zsh"
 alias ipython="ipython --nosep --colors=Linux"
-alias ls='gls --color=auto'
+alias ls='gls --color=auto --group-directories-first'
 alias lo='ls -lAX --group-directories-first'
 alias ll='ls -alF'
 alias la='ls -A'
