@@ -25,7 +25,7 @@ HIST_STAMPS="mm/dd/yyyy"                # Uncomment the following line if you
 
 export GOPATH=$HOME/.go
 export GOBIN=${GOPATH}/bin
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8` #JAVA_HOME
+export JAVA_HOME=$(/usr/libexec/java_home -v 1.8 2>/dev/null) #JAVA_HOME
 export M2_HOME=/usr/local/maven-3.0.5
 export MAVEN_OPTS=-Xmx1024m
 
