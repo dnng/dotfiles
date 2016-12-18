@@ -37,6 +37,7 @@ Plugin 'godlygeek/tabular'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'digitaltoad/vim-jade'
 Plugin 'fatih/vim-go'
+Plugin 'leafgarland/typescript-vim'
 
 " Brief help
 " :PluginList       - lists configured plugins
