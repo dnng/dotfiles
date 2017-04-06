@@ -64,6 +64,9 @@ set nonu
 " Set highlight for line and column
 set cursorline
 
+" Auto save the file when calling 'make' from within Vim
+set autowrite
+
 " This defines the visible expression of whitespace characters
 " Use "set list" to display this charaters and "set nolist" to hide them
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
