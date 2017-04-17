@@ -23,22 +23,22 @@ HIST_STAMPS="mm/dd/yyyy"                # Uncomment the following line if you
                                         # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 
 
-export GOPATH=$HOME/.go
-export GOBIN=${GOPATH}/bin
 export JAVA_HOME=$(/usr/libexec/java_home -v 1.8 2>/dev/null) #JAVA_HOME
 export M2_HOME=/usr/local/maven-3.0.5
 export MAVEN_OPTS=-Xmx1024m
 
 # ZSH_CUSTOM=/path/to/new-custom-folder # Would you like to use another custom folder than $ZSH/custom?
-plugins=(git osx npm node aws gradle mvn go colored-man-pages command-not-found cp extract vundle node pip)
+plugins=(git osx npm node aws gradle mvn go docker)
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
+set_path() {
+    export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+    export PATH=$PATH:/usr/local/sbin
+    export PATH=$PATH:/usr/local/share/dotnet
+}
+set_path
 
-export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
-export PATH=$PATH:/usr/local/sbin
-export PATH=$PATH:$GOPATH/bin
-export PATH=$PATH:/usr/local/share/dotnet
 export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8 # You may need to manually set your language environment
 
@@ -75,3 +75,15 @@ fi
 export CLOUD="Google Drive/CMU/Fall 2015/Cloud Computing/"
 source /usr/local/share/zsh/site-functions/_aws # Autocomplete functions for AWS CLI
 
+# My way to set GOPATH (yes, I want multiple workspaces!)
+set_gopath() {
+    # First, set the GOPATH to the project directory
+    export GOPATH=${PWD}:~/.go
+
+    # This might not be necessary at all.
+    # export GOBIN=${GOPATH}/bin
+
+    # Lastly, update the PATH
+    set_path
+    export PATH=$PATH:${GOPATH//://bin:}/bin
+}
