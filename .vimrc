@@ -80,6 +80,9 @@ colo distinguished
 
 autocmd BufWritePre *.c :%s/\s\+$//e
 autocmd BufWritePre *.h :%s/\s\+$//e
+autocmd BufWritePre *.py :%s/\s\+$//e
+autocmd BufWritePre *.js :%s/\s\+$//e
+
 
 " Automatically open the quickfix window after you run make
 autocmd QuickFixCmdPost * :copen
