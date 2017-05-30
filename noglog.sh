@@ -17,6 +17,11 @@ TAGS=$(git log --simplify-by-decoration --decorate --pretty=oneline | \
     egrep -o 'tag:[^,)]*' | \
     awk -F': ' '{ print $2 }')
 
+if [ -z ${TAGS} ]; then
+    echo "There are no tags in this repository. Can't generate tag changelog"
+    exit -1
+fi
+
 # Couldn't find a solution that does not use arrays, so the script is not
 # portable, but its the first version so...
 declare -a TAGS_LIST=(${TAGS})
