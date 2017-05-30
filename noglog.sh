@@ -17,7 +17,7 @@ TAGS=$(git log --simplify-by-decoration --decorate --pretty=oneline | \
     egrep -o 'tag:[^,)]*' | \
     awk -F': ' '{ print $2 }')
 
-if [ -z ${TAGS} ]; then
+if [ -z "${TAGS}" ]; then
     echo "There are no tags in this repository. Can't generate tag changelog"
     exit -1
 fi
