@@ -1,7 +1,7 @@
 #!/bin/bash
-# noglog.sh - A script to create a changelog from scratch
+# taglog - A script to create a tag-changelog from scratch
 #
-# Author: Daniel Noguchi <danielnoguchi at gmail>
+# Author: Daniel Noguchi <danielnoguchi at gmail dot com>
 
 # This sequence of commands gives us a list of tags on a branch, i.e a sequence
 # of tags starting at the most recent tag and ends at the first tag of a commit
