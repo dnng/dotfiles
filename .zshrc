@@ -66,6 +66,7 @@ alias lo='ls -lAX --group-directories-first'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
+alias ctags="`brew --prefix`/bin/ctags"
 
 ### Added by the Heroku Toolbelt
 export PATH="/usr/local/heroku/bin:$PATH"
