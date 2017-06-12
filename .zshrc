@@ -7,7 +7,7 @@ ZSH_THEME="robbyrussell"
 # DISABLE_AUTO_UPDATE="true"            # Uncomment to disable bi-weekly auto-update checks.
 # export UPDATE_ZSH_DAYS=13             # Uncomment to change how often to auto-update (in days).
 # DISABLE_LS_COLORS="true"              # Uncomment to disable colors in ls.
-# DISABLE_AUTO_TITLE="true"             # Uncomment to disable auto-setting terminal title.
+DISABLE_AUTO_TITLE="true"             # Uncomment to disable auto-setting terminal title.
 # ENABLE_CORRECTION="true"              # Uncomment to enable command auto-correction.
 # COMPLETION_WAITING_DOTS="true"        # Uncomment to display red dots whilst waiting for completion.
 DISABLE_UNTRACKED_FILES_DIRTY="true"    # Uncomment the following line if you
@@ -87,3 +87,8 @@ set_gopath() {
     set_path
     export PATH=$PATH:${GOPATH//://bin:}/bin
 }
+
+function set_title {
+    echo -ne "\033]0;"$*"\007"
+}
+
