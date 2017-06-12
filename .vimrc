@@ -67,6 +67,11 @@ set cursorline
 " Auto save the file when calling 'make' from within Vim
 set autowrite
 
+" Shortcuts to make it easier to jump between errors in quickfix list
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
 " This defines the visible expression of whitespace characters
 " Use "set list" to display this charaters and "set nolist" to hide them
 set listchars=eol:$,tab:>-,trail:~,extends:>,precedes:<
