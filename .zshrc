@@ -29,7 +29,6 @@ export MAVEN_OPTS=-Xmx1024m
 
 # ZSH_CUSTOM=/path/to/new-custom-folder # Would you like to use another custom folder than $ZSH/custom?
 plugins=(git osx npm node aws gradle mvn go docker)
-alias ctags="`brew --prefix`/bin/ctags"
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
