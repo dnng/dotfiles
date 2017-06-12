@@ -29,6 +29,7 @@ export MAVEN_OPTS=-Xmx1024m
 
 # ZSH_CUSTOM=/path/to/new-custom-folder # Would you like to use another custom folder than $ZSH/custom?
 plugins=(git osx npm node aws gradle mvn go docker)
+alias ctags="`brew --prefix`/bin/ctags"
 source $ZSH/oh-my-zsh.sh
 
 # User configuration
@@ -39,6 +40,11 @@ set_path() {
 }
 set_path
 
+export PATH="/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin"
+export PATH=$PATH:/usr/local/sbin
+export PATH=$PATH:$GOPATH/bin
+export PATH=$PATH:/usr/local/share/dotnet
+export PATH=$PATH:/Library/TeX/Root/bin/x86_64-darwin
 export MANPATH="/usr/local/man:$MANPATH"
 export LANG=en_US.UTF-8 # You may need to manually set your language environment
 
