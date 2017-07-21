@@ -35,7 +35,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
 Plugin 'godlygeek/tabular'
 Plugin 'flazz/vim-colorschemes'
-Plugin 'digitaltoad/vim-jade'
+Plugin 'digitaltoad/vim-pug'
 Plugin 'fatih/vim-go'
 Plugin 'leafgarland/typescript-vim'
 
