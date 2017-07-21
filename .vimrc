@@ -81,7 +81,7 @@ set tags=./tags;/
 " Many thanks to: http://vimbits.com/bits/263
 nnoremap Q @@
 
-colo distinguished
+colo Molokai
 
 autocmd BufWritePre *.c :%s/\s\+$//e
 autocmd BufWritePre *.h :%s/\s\+$//e
