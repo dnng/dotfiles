@@ -110,7 +110,7 @@ let Tlist_Use_Right_Window = 1
 " Mappings to ease my life :-)
 map <F9> :new<CR>:read !svn diff<CR>:set syntax=diff buftype=nofile<CR>gg
 map <F4> :TlistToggle<cr>
-map <F5> :NERDTreeToggle<cr>
+map <C-t> :NERDTreeToggle<cr>
 
 " Change comments from C++ style to C style
 map <F6> :s#\/\/\(.*\)#/*\1 */#<cr>
