@@ -60,12 +60,17 @@ set wm=4      " No of characters from the right window border where wrapping sta
 set incsearch " Show first mach for the pattern being written
 set hlsearch  " Highlights all the matches for the searched pattern
 set nonu
-
-" Set highlight for line and column
-set cursorline
-
-" Auto save the file when calling 'make' from within Vim
-set autowrite
+set backspace=indent,eol,start
+set rtp+=/Users/dnoguchi/.vim/bundle/powerline/powerline/bindings/vim/
+set laststatus=2
+set guifont=Inconsolata\ for\ Powerline:h13
+set encoding=utf-8
+set t_Co=256
+set fillchars+=stl:\ ,stlnc:\
+set term=xterm-256color
+set termencoding=utf-8
+set cursorline " Set highlight for line and column
+set autowrite " Auto save the file when calling 'make' from within Vim
 
 " Shortcuts to make it easier to jump between errors in quickfix list
 map <C-n> :cnext<CR>
@@ -87,11 +92,7 @@ autocmd BufWritePre *.c :%s/\s\+$//e
 autocmd BufWritePre *.h :%s/\s\+$//e
 autocmd BufWritePre *.py :%s/\s\+$//e
 autocmd BufWritePre *.js :%s/\s\+$//e
-
-
-" Automatically open the quickfix window after you run make
-autocmd QuickFixCmdPost * :copen
-
+autocmd QuickFixCmdPost * :copen " Automatically open the quickfix window after you run make
 autocmd BufWritePost *.c :TlistUpdate
 autocmd FileType make setlocal noexpandtab " Turn off expandtab for Makefiles
 autocmd FileType html set omnifunc=htmlcomplete#CompleteTags
@@ -103,19 +104,13 @@ highlight DiffDelete term=reverse cterm=bold ctermbg=red ctermfg=black
 
 syntax enable
 
+" Tags and  Directory strucutre mappings
 let Tlist_Ctags_Cmd = "/usr/local/bin/ctags"
 let Tlist_WinWidth = 50
 let Tlist_Use_Right_Window = 1
-
-" Mappings to ease my life :-)
-map <F9> :new<CR>:read !svn diff<CR>:set syntax=diff buftype=nofile<CR>gg
-map <F4> :TlistToggle<cr>
-map <C-t> :NERDTreeToggle<cr>
-
-" Change comments from C++ style to C style
-map <F6> :s#\/\/\(.*\)#/*\1 */#<cr>
-
-map <F8> :!/usr/local/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
+map <Leader>l :TlistToggle<cr>
+map <Leader>t :NERDTreeToggle<cr>
+map <Leader>c :!/usr/local/bin/ctags -R --c++-kinds=+p --fields=+iaS --extra=+q .<CR>
 
 " Enter newline without entering insert mode
 map <S-Enter> O<Esc>
@@ -124,14 +119,9 @@ map <CR> o<Esc>
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
-
 " Disable ycm file check
 let g:ycm_confirm_extra_conf = 0
 
-" make YCM compatible with UltiSnips (using supertab)
-"let g:ycm_key_list_select_completion = ['<C-n>', '<Down>']
-"let g:ycm_key_list_previous_completion = ['<C-p>', '<Up>']
-" let g:SuperTabDefaultCompletionType = '<C-n>'
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
@@ -141,15 +131,8 @@ let g:UltiSnipsExpandTrigger = "<C-space>"
 let g:UltiSnipsJumpForwardTrigger = "<C-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 
-set rtp+=/Users/dnoguchi/.vim/bundle/powerline/powerline/bindings/vim/
-set laststatus=2
-set guifont=Inconsolata\ for\ Powerline:h13
+" Powerline style
 let g:Powerline_symbols = 'fancy'
-set encoding=utf-8
-set t_Co=256
-set fillchars+=stl:\ ,stlnc:\
-set term=xterm-256color
-set termencoding=utf-8
 
 " vim-go specifics
 let g:go_fmt_fail_silently = 1
@@ -162,8 +145,7 @@ let g:go_highlight_operators = 1
 let g:go_highlight_build_constraints = 1
 
 " Go Specific Stuff
-
-au BufRead,BufNewFile *.go set filetype=go
+autocmd BufRead,BufNewFile *.go set filetype=go
 autocmd FileType go setlocal softtabstop=4
 autocmd FileType go setlocal shiftwidth=4
 autocmd FileType go setlocal tabstop=4
