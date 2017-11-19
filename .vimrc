@@ -10,42 +10,26 @@
 set nocompatible " be iMproved, required
 filetype off     " required
 
-" Set-up Vundle
-" $ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-"
-" set the runtime path to include Vundle and initialize
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-" alternatively, pass a path where Vundle should install plugins
-" call vundle#begin('~/some/path/here')
-
-" let Vundle manage Vundle, required
-Plugin 'VundleVim/Vundle.vim'
-
-" All of your Plugins must be added before the following line
-call vundle#end()            " required
-filetype plugin indent on    " required
+" Specify a directory for plugins
+" - For Neovim: ~/.local/share/nvim/plugged
+" - Avoid using standard Vim directory names like 'plugin'
+call plug#begin('~/.vim/plugged')
 
 " Plugin 'ervandew/supertab'
-Plugin 'Valloric/YouCompleteMe'
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'Lokaltog/powerline'
-Plugin 'tpope/vim-fugitive'
-Plugin 'scrooloose/nerdtree'
-Plugin 'godlygeek/tabular'
-Plugin 'flazz/vim-colorschemes'
-Plugin 'digitaltoad/vim-pug'
-Plugin 'fatih/vim-go'
-Plugin 'leafgarland/typescript-vim'
+Plug 'Valloric/YouCompleteMe'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'Lokaltog/powerline'
+Plug 'tpope/vim-fugitive'
+Plug 'scrooloose/nerdtree'
+Plug 'godlygeek/tabular'
+Plug 'flazz/vim-colorschemes'
+Plug 'digitaltoad/vim-pug'
+Plug 'fatih/vim-go'
+Plug 'leafgarland/typescript-vim'
 
-" Brief help
-" :PluginList       - lists configured plugins
-" :PluginInstall    - installs plugins; append `!` to update or just :PluginUpdate
-" :PluginSearch foo - searches for foo; append `!` to refresh local cache
-" :PluginClean      - confirms removal of unused plugins; append `!` to auto-approve removal
-"
-" see :h vundle for more details or wiki for FAQ
+" Initialize plugin system
+call plug#end()
 
 " ---------------------------------------------------------------------
 " REMEMBER TO COMPILE YCM WITH --clang-completer AND --gocode-completer
@@ -119,9 +103,7 @@ map <CR> o<Esc>
 " automatically open and close the popup menu / preview window
 au CursorMovedI,InsertLeave * if pumvisible() == 0|silent! pclose|endif
 
-" Disable ycm file check
-let g:ycm_confirm_extra_conf = 0
-
+let g:ycm_confirm_extra_conf = 0 " Disable ycm file check
 let g:ycm_complete_in_comments = 1
 let g:ycm_complete_in_strings = 1
 let g:ycm_collect_identifiers_from_comments_and_strings = 1
@@ -131,8 +113,7 @@ let g:UltiSnipsExpandTrigger = "<C-space>"
 let g:UltiSnipsJumpForwardTrigger = "<C-j>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-k>"
 
-" Powerline style
-let g:Powerline_symbols = 'fancy'
+let g:Powerline_symbols = 'fancy' " Powerline style
 
 " vim-go specifics
 let g:go_fmt_fail_silently = 1
@@ -149,3 +130,4 @@ autocmd BufRead,BufNewFile *.go set filetype=go
 autocmd FileType go setlocal softtabstop=4
 autocmd FileType go setlocal shiftwidth=4
 autocmd FileType go setlocal tabstop=4
+
