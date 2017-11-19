@@ -92,6 +92,10 @@ autocmd QuickFixCmdPost * :copen
 
 " Turn off expandtab for Makefiles
 autocmd FileType make setlocal noexpandtab
+autocmd FileType html setlocal shiftwidth=2 tabstop=2
+autocmd FileType htmldjango setlocal shiftwidth=2 tabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2
+
 
 " vimdiff color settings
 highlight DiffAdd term=reverse cterm=bold ctermbg=green ctermfg=white
