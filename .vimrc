@@ -21,7 +21,6 @@ Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
 " Stuff for Javascript
 Plug 'ternjs/tern_for_vim'
-Plug 'vim-syntastic/syntastic'
 Plug 'digitaltoad/vim-pug'
 
 " Surrounding superpowers
@@ -36,6 +35,7 @@ Plug 'tpope/vim-fugitive'
 Plug 'scrooloose/nerdtree'
 Plug 'godlygeek/tabular'
 Plug 'flazz/vim-colorschemes'
+Plug 'w0rp/ale'
 
 " Stuff for Golang
 Plug 'fatih/vim-go'
@@ -128,15 +128,8 @@ autocmd FileType go setlocal softtabstop=4
 autocmd FileType go setlocal shiftwidth=4
 autocmd FileType go setlocal tabstop=4
 
-" Syntastic configuration
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
+" Use eslint with ale
+let g:ale_linters = {'javascript': ['eslint']}
 
 " Airline configuration
 let g:airline_theme='hybridline'
