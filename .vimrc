@@ -61,7 +61,7 @@ set laststatus=2 " Windows always have a status bar
 set guifont=Inconsolata\ for\ Powerline:h13
 set encoding=utf-8
 set termencoding=utf-8
-set cursorline " Set highlight for line and column
+set nocursorline
 set autowrite " Auto save the file when calling 'make' from within Vim
 syntax enable
 map <Leader>t :NERDTreeToggle<cr>
@@ -139,4 +139,4 @@ let g:syntastic_check_on_wq = 0
 let g:syntastic_javascript_checkers = ['eslint']
 
 " Airline configuration
-let g:airline_theme='powerlineish'
+let g:airline_theme='hybridline'
