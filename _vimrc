@@ -3,7 +3,7 @@
 " This is a  configuration file to be used on an installation of vim under
 " Microsoft Windows. I keep this separate from my .vimrc for GNU/Linux  because
 " I like to experiment with this one, and I don't think I'll use it as much as I
-" use the ne for GNU/Linux.
+" use the one for GNU/Linux.
 
 set nocompatible
 source $VIMRUNTIME/vimrc_example.vim
