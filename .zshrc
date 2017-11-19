@@ -94,4 +94,4 @@ if [[ -f "$1" ]]; then
 else
   echo 'Error: $1 is not a valid file for extraction'
 fi
-
+}
