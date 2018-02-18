@@ -189,3 +189,4 @@ rewrite_nog_git_sign() {
     fi' HEAD
 }
 
+export PATH=${PATH}:/home/noguchi/.local/bin
