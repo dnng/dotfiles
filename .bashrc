@@ -191,3 +191,5 @@ rewrite_nog_git_sign() {
 }
 
 export PATH=${PATH}:/home/noguchi/.local/bin
+alias ipython="ipython --nosep --colors=Linux"
+
