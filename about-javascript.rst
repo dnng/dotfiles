@@ -3,7 +3,7 @@ Making eslint work with vim
 
 Install the following packages:
 
-Remember to install `w0rp/ale` and to set eslist as javascript linter
+Remember to install ``w0rp/ale`` and to set ``eslint`` as javascript linter
 
 ::
 
