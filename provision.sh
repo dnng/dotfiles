@@ -1,7 +1,7 @@
 cp .Xresources ~/
 cp .bash_aliases ~/
 cp .bashrc ~/
-cp .git/ ~/
+cp .gitignore ~/
 cp .gitconfig ~/
 cp .i3/ ~/
 cp .screenrc ~/
