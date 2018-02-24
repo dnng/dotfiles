@@ -1,3 +1,8 @@
+#/usr/bin/env bash
+#
+# Plain simple installation of dotfiles on my machine
+# Simply execute this from the root folder of the dotfiles repo
+
 cp .Xresources ~/
 cp .bash_aliases ~/
 cp .bashrc ~/
