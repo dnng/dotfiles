@@ -64,7 +64,7 @@ set nocursorline
 set autowrite " Auto save the file when calling 'make' from within Vim
 syntax enable
 map <Leader>t :NERDTreeToggle<cr>
-colo Molokai
+colo molokai
 
 " Shortcuts to make it easier to jump between errors in quickfix list
 map <C-n> :cnext<CR>
