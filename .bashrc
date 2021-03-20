@@ -127,7 +127,7 @@ get_sha() {
 
 set_nog_sign() {
     git config user.name "Daniel Noguchi"
-    git config user.email danielnoguchi@gmail.com
+    git config user.email 2511352+dnng@users.noreply.github.com
 }
 
 # Some git sugar to ease my life :-)
@@ -181,8 +181,8 @@ rewrite_nog_git_sign() {
     then
         GIT_COMMITTER_NAME="Daniel Noguchi";
         GIT_AUTHOR_NAME="Daniel Noguchi";
-        GIT_COMMITTER_EMAIL="danielnoguchi@gmail.com";
-        GIT_AUTHOR_EMAIL="danielnoguchi@gmail.com";
+        GIT_COMMITTER_EMAIL="2511352+dnng@users.noreply.github.com";
+        GIT_AUTHOR_EMAIL="2511352+dnng@users.noreply.github.com";
         git commit-tree "$@";
     else
         git
