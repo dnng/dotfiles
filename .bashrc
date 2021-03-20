@@ -84,24 +84,16 @@ if [ -x /usr/bin/dircolors ]; then
     alias egrep='egrep --color=auto'
 fi
 
-# colored GCC warnings and errors
-#export GCC_COLORS='error=01;31:warning=01;35:note=01;36:caret=01;32:locus=01:quote=01'
-
 # some more ls aliases
 alias lo='ls -lAX --group-directories-first'
 alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-# Add an "alert" alias for long running commands.  Use like so:
-#   sleep 10; alert
-alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
-
 # Alias definitions.
 # You may want to put all your additions into a separate file like
 # ~/.bash_aliases, instead of adding them here directly.
 # See /usr/share/doc/bash-doc/examples in the bash-doc package.
-
 if [ -f ~/.bash_aliases ]; then
     . ~/.bash_aliases
 fi
@@ -117,55 +109,24 @@ if ! shopt -oq posix; then
   fi
 fi
 
-get_dir() {
+get-dir() {
     printf "%s" $(pwd | sed "s:$HOME:~:")
+    echo
 }
 
-get_sha() {
+get-sha() {
     git rev-parse --short HEAD 2>/dev/null
 }
 
-set_nog_sign() {
+set-nog-sign() {
     git config user.name "Daniel Noguchi"
     git config user.email 2511352+dnng@users.noreply.github.com
 }
 
-# Some git sugar to ease my life :-)
-# First we set PS1 var to show me where I am in the context of a git repository.
-# Then we set some common git variables to show me some information about the
-# repo without the need to run git status every time.
-#
-# Some doc is good to understand the values:
-# A * tells me that I have unstaged changes in the repo
-# A % tells me that I have untracked changes in the repo
-# A + tells me that I have staged changes in the repo
-# A = tells me that I’m neither ahead of nor behind the remote branch
-# A < tells me that I am behind the remote branch
-# A > tells me that I am ahead the remote branch
-# A <> tells me that the branches have diverged
-#
-# Update: I've disabled this because it takes too long to parse on large dirs:
-# PS1='\u@\h \W$(__git_ps1 " (%s $(get_sha)) ")\$ '
-#
-# Then I just transformed it to a function, so if you want it, just make a call
-# to it:
-set_git_ps1() {
-    PS1='\u@\h \W$(__git_ps1 " (%s $(get_sha)) ")\$ '
-}
-
-set_nog_ps1() {
+set-ps1() {
     PS1="$(if [[ ${EUID} == 0 ]]; then echo '\[\033[01;31m\]\h'; else echo '\[\033[01;32m\]\u@\h'; fi)\[\033[01;34m\] \W \$([[ \$? != 0 ]] && echo \"\[\033[01;31m\]:(\[\033[01;34m\] \")\$\[\033[00m\] "
 }
-
-set_nog_ps1
-
-GIT_PS1_SHOWDIRTYSTATE=1
-GIT_PS1_SHOWSTASHSTATE=1
-GIT_PS1_SHOWUNTRACKEDFILES=1
-# Explicitly unset color (default anyhow). Use 1 to set it.
-GIT_PS1_SHOWCOLORHINTS=
-GIT_PS1_DESCRIBE_STYLE="branch"
-GIT_PS1_SHOWUPSTREAM="auto git"
+set-ps1
 
 # OS X pbcopy/pbpaste command line tool emulation
 if [ -f /usr/bin/xclip ] ; then
@@ -175,7 +136,7 @@ fi
 
 # Add reset author and email on git log function
 # From http://stackoverflow.com/questions/750172/how-do-i-change-the-author-of-a-commit-in-git
-rewrite_nog_git_sign() {
+rewrite-nog-git-sign() {
     git filter-branch --commit-filter '
     if [ "$GIT_COMMITTER_NAME" = "Daniel Noguchi" ];
     then
