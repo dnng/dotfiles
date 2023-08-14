@@ -14,27 +14,43 @@ filetype off     " required
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-" Plugin 'ervandew/supertab'
-Plug 'Valloric/YouCompleteMe'
+" YouCompleteMe for autocompletion
+Plug 'ycm-core/YouCompleteMe'
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
 
-" Stuff for Javascript
-Plug 'ternjs/tern_for_vim'
-Plug 'digitaltoad/vim-pug'
+" For linting and syntax checking
+Plug 'dense-analysis/ale'
+
+" NERDTree for file browsing
+Plug 'preservim/nerdtree'
+
+" For code navigation. It shows symbols such as classes, methods, and variables
+" in a sidebar, allowing you to quickly navigate through your code.
+Plug 'preservim/tagbar'
+
+" FZF for fuzzy finding
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
+
+" Vim-Virtualenv for virtual environment management
+Plug 'jmcantrell/vim-virtualenv'
 
 " Surrounding superpowers
 Plug 'tpope/vim-surround'
+
+" For Git integration
+Plug 'tpope/vim-fugitive'
 
 " Status bar superpowers
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 
 " Misc
-Plug 'tpope/vim-fugitive'
-Plug 'scrooloose/nerdtree'
 Plug 'godlygeek/tabular'
 Plug 'flazz/vim-colorschemes'
-Plug 'w0rp/ale'
+
+" Jinja files syntax highlighting
+Plug 'lepture/vim-jinja'
 
 " Stuff for Golang
 Plug 'fatih/vim-go'
@@ -48,7 +64,7 @@ call plug#end()
 " ---------------------------------------------------------------------
 set expandtab " Tabs into spaces
 set ts=4      " Tab = 4 spaces
-set tw=80     " Text Width 80 characters cha
+set tw=80     " Text Width 80 characters chars
 set sw=4      " Number of collums shifted by the command '>' or '<'
 set sm        " Highlight enclosing brackets
 set wm=4      " No of characters from the right window border where wrapping starts
@@ -67,9 +83,9 @@ map <Leader>t :NERDTreeToggle<cr>
 colo molokai
 
 " Shortcuts to make it easier to jump between errors in quickfix list
-map <C-n> :cnext<CR>
-map <C-m> :cprevious<CR>
-nnoremap <leader>a :cclose<CR>
+map <Leader>n :cnext<CR>
+map <Leader>m :cprevious<CR>
+nnoremap <Leader>a :cclose<CR>
 
 " This defines the visible expression of whitespace characters
 " Use "set list" to display this characters and "set nolist" to hide them
@@ -80,7 +96,7 @@ set tags=./tags;/
 " Many thanks to: http://vimbits.com/bits/263
 nnoremap Q @@
 
-" Before writting the whgole buffer to a file, clean trailing whitespace
+" Before writting the whole buffer to a file, clean trailing whitespace
 autocmd BufWritePre *.c :%s/\s\+$//e
 autocmd BufWritePre *.h :%s/\s\+$//e
 autocmd BufWritePre *.py :%s/\s\+$//e
@@ -127,8 +143,15 @@ autocmd FileType go setlocal softtabstop=4
 autocmd FileType go setlocal shiftwidth=4
 autocmd FileType go setlocal tabstop=4
 
-" Use eslint with ale
-let g:ale_linters = {'javascript': ['eslint']}
+" Configure ALE for javascript and python
+let g:ale_linters = {}
+let g:ale_fixers = {}
+
+let g:ale_linters['python'] = ['flake8', 'mypy']
+let g:ale_fixers['python'] = ['black', 'autoflake']
+
+let g:ale_linters['javascript'] = ['eslint']
+let g:ale_fixers['javascript'] = ['eslint']
 
 " Airline configuration
 let g:airline_theme='hybridline'
