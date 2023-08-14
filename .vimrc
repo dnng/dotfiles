@@ -78,9 +78,18 @@ set encoding=utf-8
 set termencoding=utf-8
 set nocursorline
 set autowrite " Auto save the file when calling 'make' from within Vim
+
 syntax enable
+
 map <Leader>t :NERDTreeToggle<cr>
 colo molokai
+let mapleader = "\\"
+
+" Next buffer
+nnoremap <Leader>b :bnext<CR>
+
+" Previous buffer
+nnoremap <Leader>B :bprev<CR>
 
 " Shortcuts to make it easier to jump between errors in quickfix list
 map <Leader>n :cnext<CR>
