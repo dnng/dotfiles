@@ -159,8 +159,12 @@ let g:ale_fixers = {}
 let g:ale_linters['python'] = ['flake8', 'mypy']
 let g:ale_fixers['python'] = ['black', 'autoflake']
 
+" Ignore Line too long (82 > 79 characters) (E501)
+let g:ale_python_flake8_options = '--ignore=E501'
+
 let g:ale_linters['javascript'] = ['eslint']
 let g:ale_fixers['javascript'] = ['eslint']
+
 
 " Airline configuration
 let g:airline_theme='hybridline'
