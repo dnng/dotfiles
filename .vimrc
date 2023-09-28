@@ -14,9 +14,9 @@ filetype off     " required
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
-" YouCompleteMe for autocompletion
-Plug 'ycm-core/YouCompleteMe'
-Plug 'rdnetto/YCM-Generator', { 'branch': 'stable'}
+" Language server
+Plug 'prabirshrestha/vim-lsp'
+Plug 'mattn/vim-lsp-settings'
 
 " For linting and syntax checking
 Plug 'dense-analysis/ale'
@@ -57,6 +57,25 @@ Plug 'fatih/vim-go'
 
 " Initialize plugin system
 call plug#end()
+
+" Send the autocomplete function to work with the LSP plugin
+" User C-x-o to start the autocomplete
+function! s:on_lsp_buffer_enabled() abort
+    setlocal omnifunc=lsp#complete
+    setlocal signcolumn=yes
+    nmap <buffer> gi <plug>(lsp-definition)
+    nmap <buffer> gd <plug>(lsp-declaration)
+    nmap <buffer> gr <plug>(lsp-references)
+    nmap <buffer> gl <plug>(lsp-document-diagnostics)
+    nmap <buffer> <f2> <plug>(lsp-rename)
+    nmap <buffer> <f3> <plug>(lsp-hover)
+endfunction
+
+" Calls the function above when the LSP server is loaded
+augroup lsp_install
+    au!
+    autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
+augroup END
 
 " ---------------------------------------------------------------------
 " REMEMBER TO COMPILE YCM WITH --clang-completer AND --gocode-completer
