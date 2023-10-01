@@ -56,7 +56,7 @@ if [ -f /usr/bin/xclip ] ; then
     alias pbpaste='xclip -selection clipboard -o'
 fi
 
-export PATH=${PATH}:/home/noguchi/.local/bin
+export PATH=${PATH}:${HOME}/.local/bin
 alias ipython="ipython --nosep --colors=Linux"
 
 
@@ -91,7 +91,7 @@ EDITOR=vim
 ################################################################################
 
 # Path to the bash it configuration
-export BASH_IT="/home/noguchi/.bash_it"
+export BASH_IT="${HOME}/.bash_it"
 
 # Lock and Load a custom theme file.
 # Leave empty to disable theming.
