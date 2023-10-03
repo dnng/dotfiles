@@ -55,6 +55,13 @@ Plug 'lepture/vim-jinja'
 " Stuff for Golang
 Plug 'fatih/vim-go'
 
+" Make it nice to work with Arduino
+Plug 'stevearc/vim-arduino'
+Plug 'sudar/vim-arduino-syntax'
+
+" Comment stuff
+Plug 'tomtom/tcomment_vim'
+
 " Initialize plugin system
 call plug#end()
 
@@ -150,11 +157,6 @@ highlight DiffDelete term=reverse cterm=bold ctermbg=red ctermfg=black
 map <S-Enter> O<Esc>
 map <CR> o<Esc>
 
-let g:ycm_confirm_extra_conf = 0 " Disable ycm file check
-let g:ycm_complete_in_comments = 1
-let g:ycm_complete_in_strings = 1
-let g:ycm_collect_identifiers_from_comments_and_strings = 1
-
 " vim-go specifics
 let g:go_fmt_fail_silently = 1
 let g:go_fmt_autosave = 0
@@ -184,6 +186,9 @@ let g:ale_python_flake8_options = '--ignore=E501'
 let g:ale_linters['javascript'] = ['eslint']
 let g:ale_fixers['javascript'] = ['eslint']
 
-
 " Airline configuration
 let g:airline_theme='hybridline'
+
+" Tell vim-arduino where the board definitions are
+let arduino_dir = '~/.arduino15'
+let arduino_home_dir = '~/.arduino15'
