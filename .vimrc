@@ -14,12 +14,16 @@ filetype off     " required
 " - Avoid using standard Vim directory names like 'plugin'
 call plug#begin('~/.vim/plugged')
 
+
 " Language server
 Plug 'prabirshrestha/vim-lsp'
 Plug 'mattn/vim-lsp-settings'
 
 " For linting and syntax checking
 Plug 'dense-analysis/ale'
+
+" For bridging ale and lsp
+Plug 'rhysd/vim-lsp-ale'
 
 " NERDTree for file browsing
 Plug 'preservim/nerdtree'
@@ -84,10 +88,6 @@ augroup lsp_install
     autocmd User lsp_buffer_enabled call s:on_lsp_buffer_enabled()
 augroup END
 
-" ---------------------------------------------------------------------
-" REMEMBER TO COMPILE YCM WITH --clang-completer AND --gocode-completer
-"               PUT YOUR NON-PLUGIN STUFF AFTER THIS LINE
-" ---------------------------------------------------------------------
 set expandtab " Tabs into spaces
 set ts=4      " Tab = 4 spaces
 set tw=80     " Text Width 80 characters chars
@@ -184,7 +184,31 @@ let g:ale_fixers['python'] = ['black', 'autoflake']
 let g:ale_python_flake8_options = '--ignore=E501'
 
 let g:ale_linters['javascript'] = ['eslint']
-let g:ale_fixers['javascript'] = ['eslint']
+let g:ale_fixers['javascript'] = ['prettier']
+
+let g:ale_fixers['*'] = ['remove_trailing_lines', 'trim_whitespace']
+
+command! FormatFile :ALEFix
+nnoremap <Leader>ff :FormatFile<CR>
+
+let g:ale_linting_active = 1
+
+function! ToggleLinting()
+    if g:ale_linting_active
+        let g:ale_linting_active = 0
+        set signcolumn=no
+        ALEToggle
+        echo "X Linting + sign column disabled"
+    else
+        let g:ale_linting_active = 1
+        set signcolumn=yes
+        ALEToggle
+        echo "+ Linting + sign column enabled"
+    endif
+endfunction
+
+command! ToggleLinting call ToggleLinting()
+nnoremap <Leader>ll :ToggleLinting<CR>
 
 " Airline configuration
 let g:airline_theme='hybridline'
